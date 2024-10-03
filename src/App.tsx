@@ -1,13 +1,16 @@
-import React from 'react';
-import background from './assets/images/Background.png';
 import Navbar from './components/Navbar';
+import LoginPage from './pages/LoginPage';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 function App() {
   return (
-    <div className='p-[40px]'>
-      <div className="absolute top-0 left-0 w-full h-full">
-        <img src={background} alt="Background" className="w-full h-full object-cover " />
-      </div>
+<div className="min-h-screen bg-custom-background bg-cover bg-center p-[40px]">
+
       <Navbar/>
+      <Router>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+      </Routes>
+    </Router>
     </div>
   );
 }
