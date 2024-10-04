@@ -46,14 +46,14 @@ const PatientList: React.FC = () => {
   return (
     <div className="min-h-screen bg-custom-gradient-div shadow-custom-div rounded-[16px] p-10 my-4">
       <div className="flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 h-auto md:h-24">
-        <div className="w-full md:w-1/3 p-4 rounded-lg text-white flex items-center gap-2">
+        <div className="w-1/2 p-4 rounded-lg text-white flex flex-row items-center gap-4">
           <img src={recherche} alt="recherche" />
           <h1 className="text-steel-blue font-bold font-Ubuntu text-[24px]">
             Recherche de patients
           </h1>
         </div>
 
-        <div className="w-full md:w-1/2 flex flex-col sm:flex-row items-center gap-4 justify-start">
+        <div className="w-3/4 flex flex-col sm:flex-row items-center gap-4 justify-start">
           <div className="mb-1 relative w-2/3">
             <input
               type="text"
@@ -73,10 +73,10 @@ const PatientList: React.FC = () => {
           </button>
         </div>
 
-        <div className="w-[full] md:w-auto p-4 rounded-lg text-white">
-          <button className="bg-cyan text-white px-4 py-2 rounded-[20px] flex items-center" onClick={() => navigate("/addpatient")}>
+        <div className="w-96 p-4 flex flex-col sm:flex-row  rounded-lg text-white gap-4 justify-end">
+          <button className="bg-cyan text-white px-8  py-3 rounded-[20px] flex items-center" onClick={() => navigate("/addpatient")}>
             <img src={nouveauPatient} alt="nouveau-patient" />
-            <span>&nbsp; Nouveau dossier</span>
+            <span>&nbsp;Nouveau dossier</span>
           </button>
         </div>
       </div>
