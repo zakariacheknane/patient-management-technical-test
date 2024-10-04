@@ -14,7 +14,7 @@ function App() {
         <Route path="/" element={<LoginPage />} />
         <Route path="/patients" element={<PatientList />} />
         <Route path="/addpatient" element={<AddFolder />} />
-        <Route path="/patient" element={<PatientProfile/>} />
+        <Route path="/patient/:id" element={<PatientProfile />} />
       </Routes>
     </Router>
     </div>

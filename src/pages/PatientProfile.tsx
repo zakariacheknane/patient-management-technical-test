@@ -7,8 +7,21 @@ import coeurIcon from "../assets/icons/coeur.svg";
 import subtractIcon from "../assets/icons/Subtract.svg";
 import UserIcon from "../assets/icons/user-circle.svg";
 import consultationIcon from "../assets/icons/consultation.svg";
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectPatientById } from "../redux/patient/patientSlice";
 
 const PatientProfile: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
+  
+  const patient = useSelector(selectPatientById(id || ''));
+  if (!id) {
+    return <div>ID du patient non trouvé</div>;
+  }
+
+  if (!patient) {
+    return <div>Patient non trouvé</div>;
+  }
   return (
     <div className="min-h-screen bg-custom-gradient-div p-10 flex flex-col items-center w-full rounded-[16px] mt-4">
       <div className="flex w-full justify-between items-center  bg-custom-gradient-div rounded-[16px] p-6">
@@ -20,12 +33,12 @@ const PatientProfile: React.FC = () => {
           </div>
           <div className="space-x-48 flex ">
             <div>
-              <h2 className="text-xl font-semibold">Manal Mansar</h2>
-              <p className="text-gray-500">Sexe: Homme</p>
+              <h2 className="text-xl font-semibold">{patient.firstName} Mansar</h2>
+              <p className="text-gray-500">Sexe: {patient.gender}</p>
             </div>
             <div>
-              <h2 className="text-xl font-semibold">Manal Mansar</h2>
-              <p className="text-gray-500">Sexe: Homme</p>
+              <h2 className="text-xl font-semibold">Date de naissance: {patient.birthDate}</h2>
+              <p className="text-gray-500">Age: {patient.gender}</p>
             </div>
           </div>
         </div>
@@ -95,39 +108,39 @@ const PatientProfile: React.FC = () => {
         <div className="grid grid-cols-5 gap-6 mt-3 ml-9">
           <div className="col-span-1">
             <p className="text-sm text-steel-blue mb-2 font-medium">CINE</p>
-            <p className="text-lg">BK653575</p>
+            <p className="text-lg">{patient.idNumber}</p>
           </div>
           <div className="col-span-1">
             <p className="text-sm text-steel-blue mb-2 font-medium">Nom</p>
-            <p className="text-lg">Bouyaben Mehdi</p>
+            <p className="text-lg">{patient.lastName}</p>
+          </div>
+          <div className="col-span-1">
+            <p className="text-sm text-steel-blue mb-2 font-medium">Prénom</p>
+            <p className="text-lg">{patient.firstName}</p>
+          </div>
+          <div className="col-span-1">
+            <p className="text-sm text-steel-blue mb-2 font-medium">Sexe</p>
+            <p className="text-lg">{patient.gender}</p>
+          </div>
+          <div className="col-span-1">
+            <p className="text-sm text-steel-blue mb-2 font-medium">Date de naissance</p>
+            <p className="text-lg">{patient.birthDate}</p>
           </div>
           <div className="col-span-1">
             <p className="text-sm text-steel-blue mb-2 font-medium">Couverture</p>
-            <p className="text-lg">CNOPS</p>
+            <p className="text-lg">{patient.coverage}</p>
           </div>
           <div className="col-span-1">
             <p className="text-sm text-steel-blue mb-2 font-medium">Région</p>
-            <p className="text-lg">Casa-settat</p>
+            <p className="text-lg">{patient.lastName}</p>
           </div>
           <div className="col-span-1">
             <p className="text-sm text-steel-blue mb-2 font-medium">Ville</p>
-            <p className="text-lg">Casablanca</p>
+            <p className="text-lg">{patient.coverage}</p>
           </div>
           <div className="col-span-1">
             <p className="text-sm text-steel-blue mb-2 font-medium">Commune</p>
-            <p className="text-lg">Anfa</p>
-          </div>
-          <div className="col-span-1">
-            <p className="text-sm text-steel-blue mb-2 font-medium">Téléphone mobile</p>
-            <p className="text-lg">0637346201</p>
-          </div>
-          <div className="col-span-1">
-            <p className="text-sm text-steel-blue mb-2 font-medium">Adresse</p>
-            <p className="text-lg">93 Rue Meskallilie, Casablanca 20250</p>
-          </div>
-          <div className="col-span-1">
-            <p className="text-sm text-steel-blue mb-2 font-medium">Adresse</p>
-            <p className="text-lg">93 Rue Meskallilie, Casablanca 20250</p>
+            <p className="text-lg">{patient.lastName}</p>
           </div>
         </div>
 
@@ -143,7 +156,7 @@ const PatientProfile: React.FC = () => {
           </div>
           <div className="col-span-1"></div>
           <div className="col-span-1">
-            <p className="text-sm text-steel-blue mb-2 font-medium">Adresse</p>
+            <p className="text-sm text-steel-blue mb-2 font-medium">Complément d’adresse</p>
             <p className="text-lg">93 Rue Meskallilie, Casablanca 20250</p>
           </div>
           <div className="col-span-1"></div>

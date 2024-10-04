@@ -50,6 +50,7 @@ const AddFolder: React.FC = () => {
     e.preventDefault();
     
     dispatch(addPatient({
+      id: Date.now().toString(),
       dateOpened: new Date().toLocaleDateString(),
       lastName: formData.lastName,
       firstName: formData.firstName,

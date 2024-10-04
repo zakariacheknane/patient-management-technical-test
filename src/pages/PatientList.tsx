@@ -34,6 +34,10 @@ const PatientList: React.FC = () => {
     setCurrentPage(1); 
   };
 
+  const handleRowClick = (patientId: string) => {
+    navigate(`/patient/${patientId}`);
+  };
+
   const currentPatients = filteredPatients.slice(
     (currentPage - 1) * patientsPerPage,
     currentPage * patientsPerPage
@@ -77,9 +81,7 @@ const PatientList: React.FC = () => {
         </div>
       </div>
 
-      <div
-        className="overflow-x-auto border-2 border-steel-blue rounded-[10px] p-8 mt-4"
-      >
+      <div className="overflow-x-auto border-2 border-steel-blue rounded-[10px] p-8 mt-4">
         <table className="min-w-full table-auto">
           <thead>
             <tr className="w-full text-cyan items-center text-center">
@@ -98,7 +100,8 @@ const PatientList: React.FC = () => {
               currentPatients.map((patient, index) => (
                 <tr
                   key={index}
-                  className={`border-t font-Ubuntu font-bold text-[16px] text-steel-blue text-center ${
+                  onClick={() => handleRowClick(patient.id)}
+                  className={`cursor-pointer border-t font-Ubuntu font-bold text-[16px] text-steel-blue text-center ${
                     index % 2 === 0 ? "bg-[#50799E1C]" : "bg-transparent"
                   }`}
                 >
@@ -123,7 +126,6 @@ const PatientList: React.FC = () => {
         </table>
       </div>
 
-      {/* Pagination */}
       <div className="w-full bg-white flex justify-end mt-4">
         <div className="flex items-center">
           {Array.from({ length: totalPages }, (_, i) => (
