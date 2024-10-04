@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addPatient } from "../redux/patient/patientSlice";
-import dossier from "../assets/icons/dossier.svg";
+import folderIcon from "../assets/icons/folderIcon.svg";
+import selectIcon from '../assets/icons/selectIcon.svg';
 import { useNavigate } from "react-router-dom";
-import vector from '../assets/icons/Vector.svg';
 
 interface FormData {
   idNumber: string;
@@ -80,7 +80,7 @@ const AddFolder: React.FC = () => {
       <div className="flex flex-row justify-between items-center h-24">
         <div className="flex justify-center items-center gap-4 h-24">
           <div className="w-full p-4 rounded-lg text-white flex items-center gap-2">
-            <img src={dossier} alt="folder" />
+            <img src={folderIcon} alt="folder" />
             <h1 className="text-steel-blue font-bold font-ubuntu text-[24px]">
               Nouveau dossier
             </h1>
@@ -141,7 +141,7 @@ const AddFolder: React.FC = () => {
               <option value="F">Femme</option>
             </select>
             <div className="absolute top-2/3 right-4 w-[11.11px] h-[19.28px]  transform  clip-path-triangle">
-              <img src={vector} alt="select" />
+              <img src={selectIcon} alt="select" />
             </div>
           </div>
 
@@ -177,7 +177,7 @@ const AddFolder: React.FC = () => {
               <option value="CNSS">CNSS</option>
             </select>
             <div className="absolute top-2/3 right-4 w-[11.11px] h-[19.28px]  transform  clip-path-triangle ">
-              <img src={vector} alt="select" />
+              <img src={selectIcon} alt="select" />
             </div>
           </div>
 
