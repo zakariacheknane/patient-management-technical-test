@@ -9,7 +9,8 @@ module.exports = {
         'cyan': '#1AA5C0',
         'light-grey': "#E5EBF0",
         'dark-royal-blue': "#335D84",
-        'gray':"#858585"
+        'gray':"#858585",
+        'custom-gray': '#6B7280',
       },
 
       backgroundImage: {
@@ -25,7 +26,9 @@ module.exports = {
         'custom-navbar': '0px 1px 4px 0px #00467740',
         'custom-div': "2.86px 3.81px 3.81px 0px #0D88B4",
         'custom-second': "0px 4px 4px 0px #50799E57",
+        'custom-rendez':"0px 2.5px 5px 0px #00000040",
       },
+      
       fontFamily: {
         ubuntu: ['Ubuntu', 'sans-serif'],
       },

@@ -44,7 +44,7 @@ const AddFolder: React.FC = () => {
     idNumber: "",
     lastName: "",
     firstName: "",
-    gender: "H",
+    gender: "M",
     birthDate: "",
     coverage: "CNOPS",
     region: "",
@@ -137,7 +137,7 @@ const AddFolder: React.FC = () => {
               className="border border-gray rounded-md w-full p-2 appearance-none focus:outline-none"
               required
             >
-              <option value="H">Homme</option>
+              <option value="M">Homme</option>
               <option value="F">Femme</option>
             </select>
             <div className="absolute top-2/3 right-4 w-[11.11px] h-[19.28px]  transform  clip-path-triangle">

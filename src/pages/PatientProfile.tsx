@@ -7,6 +7,7 @@ import coeurIcon from "../assets/icons/coeur.svg";
 import subtractIcon from "../assets/icons/Subtract.svg";
 import UserIcon from "../assets/icons/user-circle.svg";
 import updatetIcon from "../assets/icons/update.svg";
+import editIcon from "../assets/icons/edit.svg";
 import consultationIcon from "../assets/icons/consultation.svg";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -39,12 +40,17 @@ const PatientProfile: React.FC = () => {
     return <div>Patient non trouvé</div>;
   }
   return (
-    <div className="min-h-screen bg-custom-gradient-div p-10 flex flex-col items-center w-full rounded-[16px] mt-4">
-      <div className="flex w-full justify-between items-center  bg-custom-gradient-div rounded-[16px] p-4 border-[3px] border-[#E1F4F6] shadow-custom-second">
+    <div className="min-h-screen bg-custom-gradient-div shadow-custom-div p-10 flex flex-col items-center w-full rounded-[16px] mt-4">
+      <div className="flex w-full justify-between items-center  bg-custom-gradient-div rounded-[16px] p-4 border-[3px] border-[#E1F4F6] shadow-custom-second h-36">
         <div className="flex items-center space-x-4 ">
           <div className="bg-gray-200 rounded-full p-4">
-            <div className="w-14 h-14 rounded-full">
-              <img src={patientpic} />
+            <div className="relative inline-block">
+              <div className="flex items-center justify-center rounded-full">
+                <img src={patientpic} />
+              </div>
+              <button className="absolute right-[-20px] bottom-14  p-2  ">
+                <img src={editIcon} />
+              </button>
             </div>
           </div>
           <div className="space-x-40 flex ">
@@ -54,12 +60,23 @@ const PatientProfile: React.FC = () => {
               </h2>
               <p className="text-dark-royal-blue font-bold">
                 Sexe{" "}
-                <span className="text-cyan font-bold"> {patient.gender}</span>
+                <span className="text-cyan font-bold">
+                  {" "}
+                  {patient.gender === "M" ? "Homme" : "Femme"}
+                </span>
               </p>
             </div>
             <div>
               <h2 className="text-xl font-bold text-dark-royal-blue">
-                Date de naissance: {patient.birthDate}
+                Date de naissance{" "}
+                <span className="text-cyan text-[18px] font-bold">
+                  {" "}
+                  {new Date(patient.birthDate).toLocaleDateString("fr-FR", {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                  })}
+                </span>
               </h2>
               <p className="text-dark-royal-blue font-bold ">
                 Age
@@ -73,11 +90,11 @@ const PatientProfile: React.FC = () => {
         </div>
 
         <div className="space-x-4 flex">
-          <button className="bg-dark-royal-blue text-white px-7 py-3 rounded-[36px] h-[52px] flex gap-2">
+          <button className="bg-dark-royal-blue shadow-custom-rendez text-white px-7 py-3  rounded-[36px] h-[52px] flex gap-2">
             <img src={rendezIcon} alt="Signal Icon" className="w-6 h-6" />
             Réserver un rendez-vous
           </button>
-          <button className="bg-custom-gradient-2 text-white px-7 py-3 rounded-[36px] h-[52px] flex gap-2">
+          <button className="bg-custom-gradient-2 shadow-custom text-white px-7 py-3 rounded-[36px] h-[52px] flex gap-2">
             <img
               src={consultationIcon}
               alt="consultation"
@@ -89,58 +106,62 @@ const PatientProfile: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-5  divide-x-2 divide-light-grey text-gray-500 shadow-custom-navbar font-semibold bg-white mt-5 w-full h-16">
-        <div className="bg-[#EEFAFD] flex justify-center items-center h-full w-">
-          <button className="flex items-center space-x-2 h-full">
+        <div className="bg-[#EEFAFD] flex justify-center items-center h-full ">
+          <div className="flex items-center space-x-2 h-full">
             <img src={UserIcon} alt="Fiche Icon" className="w-5 h-5" />
             <span className="text-cyan">Fiche patient</span>
-          </button>
+          </div>
         </div>
 
         <div className="flex justify-center items-center h-full">
-          <button className="flex items-center space-x-2 h-full">
+          <div className="flex items-center space-x-2 h-full text-custom-gray">
             <img src={coeurIcon} alt="Antécédents Icon" className="w-5 h-5" />
             <span>Antécédents</span>
-          </button>
+          </div>
         </div>
 
         <div className="flex justify-center items-center h-full">
-          <button className="flex items-center space-x-2 h-full">
+          <div className="flex items-center space-x-2 h-full text-custom-gray">
             <img src={airpodsIcon} alt="Constantes Icon" className="w-5 h-5" />
             <span>Constantes</span>
-          </button>
+          </div>
         </div>
 
         <div className="flex justify-center items-center h-full">
-          <button className="flex items-center space-x-2 h-full">
+          <div className="flex items-center space-x-2 h-full text-custom-gray">
             <img src={frameIcon} alt="Dépistage Icon" className="w-8 h-8" />
             <span>Dépistage</span>
-          </button>
+          </div>
         </div>
 
         <div className="flex justify-center items-center h-full">
-          <button className="flex items-center space-x-2 h-full">
+          <div className="flex items-center space-x-2 h-full text-custom-gray">
             <img
               src={subtractIcon}
               alt="Compte rendu Icon"
               className="w-5 h-5"
             />
             <span>Compte rendu</span>
-          </button>
+          </div>
         </div>
       </div>
 
-      <div className="w-full mt-6 ">
-        <h3 className="text-lg font-bold text-cyan text-[25.28px]">Patient</h3>
-        <div className="flex justify-end">
-          <button className="bg-[#5E5E5E] px-5 py-2 rounded-[36px]  text-white flex gap-2  mb-2 justify-center ">
-          <img
-              src={updatetIcon}
-              alt="update"
-              className="w-6 h-6"
-            /> Modifier
-          </button>
+      <div className="w-full mt-4 ">
+        <div className="flex w-full p-8">
+          <div className="items-center">
+            <h3 className=" font-bold text-cyan text-[24px] font-ubuntu">
+              Patient
+            </h3>
+          </div>
+          <div className="flex justify-end  w-full">
+            <button className="bg-[#5E5E5E] px-4 py-2 rounded-[36px]  text-white font-ubuntu flex items-center ">
+              <img src={updatetIcon} alt="update" className="w-6 h-6" />{" "}
+              Modifier
+            </button>
+          </div>
         </div>
-        <div className="grid grid-cols-5 gap-6 mt-4 ml-9">
+        
+        <div className="grid grid-cols-5 gap-6 mt-3 ml-9 pb-6 border-b border-[#DADADA]">
           <div className="col-span-1">
             <p className="text-sm text-steel-blue mb-2 font-medium">CINE</p>
             <p className="text-lg">{patient.idNumber}</p>
@@ -161,8 +182,17 @@ const PatientProfile: React.FC = () => {
             <p className="text-sm text-steel-blue mb-2 font-medium">
               Date de naissance
             </p>
-            <p className="text-lg">{patient.birthDate}</p>
+            <p className="text-lg">
+              {" "}
+              {new Date(patient.birthDate).toLocaleDateString("fr-FR", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+              })}
+            </p>
           </div>
+          </div>
+          <div className="grid grid-cols-5 gap-6 mt-3 ml-9 border-b border-[#DADADA] pb-6">
           <div className="col-span-1">
             <p className="text-sm text-steel-blue mb-2 font-medium">
               Couverture
