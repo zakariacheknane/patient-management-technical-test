@@ -26,6 +26,7 @@ const calculateAge = (birthDateString: string): number => {
   }
   return age;
 };
+
 const PatientProfile: React.FC = () => {
   const { id } = useParams<{ id: string }>();
 
