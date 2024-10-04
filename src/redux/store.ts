@@ -2,15 +2,16 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import authReducer from './user/authSlice'; 
-
+import patientReducer from './patient/patientSlice'; 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['auth'], 
+  whitelist: ['auth', 'patients'],
 };
 
 const rootReducer = combineReducers({
   auth: authReducer, 
+  patients: patientReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
