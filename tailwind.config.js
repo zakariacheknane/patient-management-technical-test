@@ -26,6 +26,9 @@ module.exports = {
         'custom-div': "2.86px 3.81px 3.81px 0px #0D88B4",
         'custom-second': "0px 4px 4px 0px #50799E57",
       },
+      fontFamily: {
+        ubuntu: ['Ubuntu', 'sans-serif'],
+      },
     },
   },
 
