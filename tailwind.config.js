@@ -11,6 +11,7 @@ module.exports = {
         'dark-royal-blue': "#335D84",
         'gray':"#858585"
       },
+
       backgroundImage: {
         'custom-gradient-navbar': "linear-gradient(89.8deg, #E6F5FF -0.13%, #F3FAFF 23.56%, #F7FCFF 99.83%)",
         'custom-gradient-div': "linear-gradient(89.36deg, #FDFDFD 8.29%, #EEFCFD 98.21%)",
@@ -23,9 +24,11 @@ module.exports = {
         'custom': '0px 2px 4px 0px #00000040', 
         'custom-navbar': '0px 1px 4px 0px #00467740',
         'custom-div': "2.86px 3.81px 3.81px 0px #0D88B4",
+        'custom-second': "0px 4px 4px 0px #50799E57",
       },
     },
   },
+
 
   plugins: [],
 };
