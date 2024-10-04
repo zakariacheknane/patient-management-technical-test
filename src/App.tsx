@@ -3,6 +3,7 @@ import LoginPage from './pages/LoginPage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PatientList from './pages/PatientList';
 import AddFolder from './pages/AddFolder';
+import PatientProfile from './pages/PatientProfile';
 function App() {
   return (
 <div className="min-h-screen bg-custom-background bg-cover bg-center p-[40px]">
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<LoginPage />} />
         <Route path="/patients" element={<PatientList />} />
         <Route path="/addpatient" element={<AddFolder />} />
+        <Route path="/patient" element={<PatientProfile/>} />
       </Routes>
     </Router>
     </div>
