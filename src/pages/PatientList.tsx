@@ -13,7 +13,7 @@ const PatientList: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
   const patients = useSelector(selectPatients);
-  const patientsPerPage = 6;
+  const patientsPerPage = 7;
 
   const filteredPatients = patients.filter((patient) => {
     const fullName = `${patient.lastName.toLowerCase()} ${patient.firstName.toLowerCase()}`;
@@ -31,7 +31,7 @@ const PatientList: React.FC = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
-    setCurrentPage(1); 
+    setCurrentPage(1);
   };
 
   const handleRowClick = (patientId: string) => {
@@ -74,14 +74,17 @@ const PatientList: React.FC = () => {
         </div>
 
         <div className="w-96 p-4 flex flex-col sm:flex-row  rounded-lg text-white gap-4 justify-end">
-          <button className="bg-cyan text-white px-8  py-3 rounded-[20px] flex items-center" onClick={() => navigate("/addpatient")}>
+          <button
+            className="bg-cyan text-white px-8  py-3 rounded-[20px] flex items-center"
+            onClick={() => navigate("/addpatient")}
+          >
             <img src={nouveauPatient} alt="nouveau-patient" />
             <span>&nbsp;Nouveau dossier</span>
           </button>
         </div>
       </div>
 
-      <div className="overflow-x-auto border-2 border-steel-blue rounded-[10px] p-8 mt-4">
+      <div className="overflow-x-auto border-2 border-steel-blue rounded-[10px] px-8 py-6  mt-4">
         <table className="min-w-full table-auto">
           <thead>
             <tr className="w-full text-cyan items-center text-center">
@@ -101,18 +104,26 @@ const PatientList: React.FC = () => {
                 <tr
                   key={index}
                   onClick={() => handleRowClick(patient.id)}
-                  className={`cursor-pointer border-t font-Ubuntu font-bold text-[16px] text-steel-blue text-center ${
-                    index % 2 === 0 ? "bg-[#50799E1C]" : "bg-transparent"
+                  className={`cursor-pointer b font-Ubuntu font-bold text-[16px] text-steel-blue text-center  ${
+                    index % 2 === 0 ? "bg-[#50799E1C] " : "bg-transparent"
                   }`}
                 >
-                  <td className="p-3">{patient.dateOpened}</td>
+                  <td
+                    className={`p-3 ${index % 2 === 0 ? "rounded-l-md" : ""}`}
+                  >
+                    {patient.dateOpened}
+                  </td>
                   <td className="p-3">{patient.lastName}</td>
                   <td className="p-3">{patient.firstName}</td>
                   <td className="p-3">{patient.birthDate}</td>
                   <td className="p-3">{patient.gender}</td>
                   <td className="p-3">{patient.idNumber}</td>
                   <td className="p-3">{patient.coverage}</td>
-                  <td className="p-3">{patient.lastUpdate}</td>
+                  <td
+                    className={`p-3 ${index % 2 === 0 ? "rounded-r-md" : ""}`}
+                  >
+                    {patient.lastUpdate}
+                  </td>
                 </tr>
               ))
             ) : (
@@ -126,16 +137,14 @@ const PatientList: React.FC = () => {
         </table>
       </div>
 
-      <div className="w-full bg-white flex justify-end mt-4">
+      <div className="w-full bg-white flex justify-end mt-4 shadow-custom-pagination rounded-l-md rounded-r-md">
         <div className="flex items-center">
           {Array.from({ length: totalPages }, (_, i) => (
             <button
               key={i + 1}
               onClick={() => handlePageClick(i + 1)}
               className={`px-4 py-2 rounded-lg ${
-                currentPage === i + 1
-                  ? "bg-cyan text-white"
-                  : "text-steel-blue"
+                currentPage === i + 1 ? "shadow-custom-pagination-item text-steel-blue" : "text-steel-blue"
               }`}
             >
               {i + 1}

@@ -96,7 +96,7 @@ const LoginPage: React.FC = () => {
             id="password"
             type="password"
             placeholder="Tapez votre mot de passe"
-            className="w-full p-2 border border-steel-blue placeholder-custom-placeholder rounded-[7px] h-[50px] pr-10 focus:outline-none focus:border-steel-blue focus:border-[2px]"
+            className="w-full p-2 border border-steel-blue placeholder-custom-placeholder rounded-[7px] h-[50px] focus:outline-none focus:border-steel-blue focus:border-[2px]"
             value={userData.password}
             onChange={handleChange}
             required

@@ -27,12 +27,17 @@ module.exports = {
         'custom-div': "2.86px 3.81px 3.81px 0px #0D88B4",
         'custom-second': "0px 4px 4px 0px #50799E57",
         'custom-rendez':"0px 2.5px 5px 0px #00000040",
+        'custom-pagination':"0px 1.3px 5.2px 0px #0000001F",
+        'custom-pagination-item':"0px 1.46px 5.85px 0px #1A1A431A",
+
       },
       
       fontFamily: {
         ubuntu: ['Ubuntu', 'sans-serif'],
       },
     },
+    
+
   },
 
 
