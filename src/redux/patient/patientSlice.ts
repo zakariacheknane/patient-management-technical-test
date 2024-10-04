@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface Patient {
   dateOpened: string;
@@ -145,10 +145,12 @@ const patientSlice = createSlice({
   name: 'patients',
   initialState,
   reducers: {
-
+    addPatient: (state, action: PayloadAction<Patient>) => {
+      state.patients.push(action.payload);
+    },
   },
 });
-
+export const { addPatient} = patientSlice.actions;
 export const selectPatients = (state: { patients: PatientState }) => state.patients.patients;
 
 export default patientSlice.reducer;

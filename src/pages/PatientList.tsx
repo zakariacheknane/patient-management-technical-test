@@ -6,10 +6,12 @@ import nouveauPatient from "../assets/icons/nouveauPatient.svg";
 import next from "../assets/icons/next.svg";
 import { useSelector } from "react-redux";
 import { selectPatients } from "../redux/patient/patientSlice";
+import { useNavigate } from "react-router-dom";
 
 const PatientList: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
   const patients = useSelector(selectPatients);
   const patientsPerPage = 6;
 
@@ -68,7 +70,7 @@ const PatientList: React.FC = () => {
         </div>
 
         <div className="w-[full] md:w-auto p-4 rounded-lg text-white">
-          <button className="bg-cyan text-white px-4 py-2 rounded-[20px] flex items-center">
+          <button className="bg-cyan text-white px-4 py-2 rounded-[20px] flex items-center" onClick={() => navigate("/addpatient")}>
             <img src={nouveauPatient} alt="nouveau-patient" />
             <span>&nbsp; Nouveau dossier</span>
           </button>
