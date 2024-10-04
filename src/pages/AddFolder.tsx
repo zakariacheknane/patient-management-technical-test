@@ -59,6 +59,12 @@ const AddFolder: React.FC = () => {
       idNumber: formData.idNumber,
       coverage: formData.coverage,
       lastUpdate: new Date().toLocaleString(), 
+      region: formData.region,              
+      city: formData.city,                     
+      commune: formData.commune,               
+      mobile: formData.mobile,                  
+      address: formData.address,           
+      addressComplement: formData.addressComplement,
     }));
 
     setFormData({
@@ -141,8 +147,8 @@ const AddFolder: React.FC = () => {
               className="border border-gray rounded-md w-full p-2"
               required
             >
-              <option value="Homme">Homme</option>
-              <option value="Femme">Femme</option>
+              <option value="H">Homme</option>
+              <option value="F">Femme</option>
             </select>
           </div>
 

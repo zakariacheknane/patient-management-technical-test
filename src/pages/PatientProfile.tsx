@@ -170,15 +170,15 @@ const PatientProfile: React.FC = () => {
           </div>
           <div className="col-span-1">
             <p className="text-sm text-steel-blue mb-2 font-medium">Région</p>
-            <p className="text-lg">{patient.lastName}</p>
+            <p className="text-lg">{patient.region}</p>
           </div>
           <div className="col-span-1">
             <p className="text-sm text-steel-blue mb-2 font-medium">Ville</p>
-            <p className="text-lg">{patient.coverage}</p>
+            <p className="text-lg">{patient.city}</p>
           </div>
           <div className="col-span-1">
             <p className="text-sm text-steel-blue mb-2 font-medium">Commune</p>
-            <p className="text-lg">{patient.lastName}</p>
+            <p className="text-lg">{patient.commune}</p>
           </div>
         </div>
 
@@ -187,19 +187,19 @@ const PatientProfile: React.FC = () => {
             <p className="text-sm text-steel-blue mb-2 font-medium">
               Téléphone mobile
             </p>
-            <p className="text-lg">0637346201</p>
+            <p className="text-lg">{patient.mobile}</p>
           </div>
 
           <div className="col-span-1">
             <p className="text-sm text-steel-blue mb-2 font-medium">Adresse</p>
-            <p className="text-lg">93 Rue Meskallilie, Casablanca 20250</p>
+            <p className="text-lg">{patient.address}</p>
           </div>
           <div className="col-span-1"></div>
           <div className="col-span-1">
             <p className="text-sm text-steel-blue mb-2 font-medium">
               Complément d’adresse
             </p>
-            <p className="text-lg">93 Rue Meskallilie, Casablanca 20250</p>
+            <p className="text-lg">{patient.addressComplement}</p>
           </div>
           <div className="col-span-1"></div>
         </div>
